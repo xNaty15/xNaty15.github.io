@@ -6,5 +6,5 @@ export const enlacesNavegacion: EnlaceNavegacion[] = [
   { etiqueta: 'Tecnologías', habilitado: false },
   { etiqueta: 'Proyectos', habilitado: false },
   { etiqueta: 'Laboratorio', habilitado: false },
-  { etiqueta: 'Contacto', habilitado: false },
+  { etiqueta: 'Contacto', destino: '#contacto', habilitado: true },
 ];
