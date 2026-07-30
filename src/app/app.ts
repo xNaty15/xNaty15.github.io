@@ -1,12 +1,12 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { Encabezado } from './disposicion/encabezado/encabezado';
+import { Inicio } from './secciones/inicio/inicio';
+import { VistaPrevia } from './secciones/vista-previa/vista-previa';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [Encabezado, Inicio, VistaPrevia],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
-export class App {
-  protected readonly title = signal('portafolio-nathalia');
-}
+export class App {}

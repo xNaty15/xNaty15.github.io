@@ -1,0 +1,25 @@
+<header class="encabezado" aria-label="Navegación principal">
+  <a class="marca" href="#inicio" aria-label="Ir al inicio">
+    <span>N</span>
+    <span>P</span>
+  </a>
+
+  <nav class="navegacion" aria-label="Secciones del portafolio">
+    @for (enlace of enlaces; track enlace.etiqueta) {
+      @if (enlace.habilitado && enlace.destino) {
+        <a class="navegacion__item navegacion__item--activo" [href]="enlace.destino">
+          {{ enlace.etiqueta }}
+        </a>
+      } @else {
+        <span class="navegacion__item navegacion__item--pendiente" aria-disabled="true">
+          {{ enlace.etiqueta }}
+        </span>
+      }
+    }
+  </nav>
+
+  <button class="menu-movil" type="button" aria-label="Menú móvil pendiente" disabled>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </button>
+</header>

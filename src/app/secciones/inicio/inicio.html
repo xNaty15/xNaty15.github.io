@@ -1,0 +1,56 @@
+<main class="inicio" id="inicio">
+  <section class="hero" aria-labelledby="titulo-principal">
+    <div class="hero__contenido">
+      <p class="hero__etiqueta">DESARROLLO · INFRAESTRUCTURA · SEGURIDAD</p>
+
+      <h1 class="hero__titulo" id="titulo-principal">
+        <span>NATHALIA</span>
+        <span>PÉREZ</span>
+      </h1>
+
+      <div class="hero__perfil" aria-label="Perfil profesional">
+        <p>Desarrolladora Full Stack Junior</p>
+        <p>Estudiante de Ingeniería en Computación</p>
+      </div>
+
+      <p class="hero__descripcion">
+        Desarrollo soluciones web modernas, trabajando con frontend, backend, bases de datos,
+        automatización e infraestructura, con especial interés en ciberseguridad.
+      </p>
+
+      <div class="hero__acciones" aria-label="Acciones principales">
+        <a class="boton boton--primario" href="#proyectos">Ver proyectos</a>
+        <button
+          class="boton boton--secundario"
+          type="button"
+          disabled
+          aria-describedby="cv-pendiente"
+        >
+          Descargar CV
+        </button>
+      </div>
+      <p class="sr-only" id="cv-pendiente">Currículum público pendiente de autorización.</p>
+    </div>
+
+    <div class="hero__visual" aria-label="Fotografía de Nathalia Pérez">
+      <div class="decoracion decoracion--codigo" aria-hidden="true">CODE<br />BUILD<br />SECURE</div>
+      <div class="retrato" aria-hidden="false">
+        <span class="retrato__resplandor" aria-hidden="true"></span>
+        <img
+          class="retrato__imagen"
+          src="assets/imagenes/nathalia-perfil.png"
+          alt="Nathalia Pérez, estudiante de Ingeniería en Computación"
+        />
+        <span class="retrato__contorno" aria-hidden="true"></span>
+      </div>
+    </div>
+
+    <a class="capsula" href="#tecnologias" aria-label="Deslizar hacia tecnologías">
+      <span aria-hidden="true"></span>
+      <span>Desliza para descubrir más</span>
+      <strong aria-hidden="true">→</strong>
+    </a>
+  </section>
+
+  <app-franja-tecnologias />
+</main>

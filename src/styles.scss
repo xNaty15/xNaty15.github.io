@@ -1,1 +1,578 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-fondo: #05030a;
+  --color-superficie: #0e0a16;
+  --color-superficie-elevada: #151020;
+  --color-violeta: #8b2cff;
+  --color-neon: #c026ff;
+  --color-lavanda: #e8d9ff;
+  --color-texto: #f7f4fb;
+  --color-texto-secundario: #b9b3c7;
+  --color-borde: rgba(192, 38, 255, 0.28);
+  --color-cian: #55dde0;
+  --ancho-contenido: 96rem;
+  --espacio-pagina: clamp(1rem, 1.5rem, 2rem);
+  --fuente-base: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --fuente-mono: 'Cascadia Code', Consolas, 'Courier New', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-fondo);
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at 73% 16%, rgba(139, 44, 255, 0.22), transparent 30rem),
+    radial-gradient(circle at 12% 42%, rgba(85, 221, 224, 0.08), transparent 22rem),
+    linear-gradient(180deg, var(--color-fondo), #08040d 58%, var(--color-fondo));
+  color: var(--color-texto);
+  font-family: var(--fuente-base);
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+body::before {
+  background-image:
+    linear-gradient(rgba(232, 217, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 217, 255, 0.035) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  content: '';
+  inset: 0;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent 72%);
+  pointer-events: none;
+  position: fixed;
+}
+
+a,
+button {
+  font: inherit;
+}
+
+.boton {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 0.8rem;
+  display: inline-flex;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 3rem;
+  overflow: hidden;
+  padding: 0.75rem 1.15rem;
+  position: relative;
+  text-decoration: none;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.boton--primario {
+  background: linear-gradient(135deg, var(--color-violeta), #6717d7);
+  border-color: rgba(232, 217, 255, 0.18);
+  box-shadow: 0 0 28px rgba(139, 44, 255, 0.34);
+  color: var(--color-texto);
+}
+
+.boton--primario::before,
+.boton--primario::after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+}
+
+.boton--primario::before {
+  background: linear-gradient(180deg, rgba(232, 217, 255, 0.18), rgba(192, 38, 255, 0.08));
+  border-radius: inherit;
+  inset: 1px;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.boton--primario::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), rgba(192, 38, 255, 0.88), transparent);
+  border-radius: 999px;
+  bottom: 0.45rem;
+  box-shadow: 0 0 10px rgba(232, 217, 255, 0.85);
+  height: 2px;
+  left: 12%;
+  opacity: 0;
+  transform: translateX(-140%) scaleX(0.6);
+  width: 34%;
+}
+
+.boton--primario:hover,
+.boton--primario:focus-visible {
+  background: linear-gradient(135deg, #9b45ff, #7526f2);
+  border-color: rgba(232, 217, 255, 0.4);
+  box-shadow: 0 0 38px rgba(139, 44, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.boton--primario:hover::before,
+.boton--primario:focus-visible::before {
+  opacity: 1;
+}
+
+.boton--primario:hover::after,
+.boton--primario:focus-visible::after {
+  animation: boton-destello 880ms ease-out forwards;
+}
+
+.boton--secundario {
+  background: rgba(14, 10, 22, 0.78);
+  border: 1px solid var(--color-borde);
+  color: var(--color-texto-secundario);
+}
+
+.boton--secundario:disabled {
+  border-color: rgba(185, 179, 199, 0.22);
+  box-shadow: none;
+  color: rgba(185, 179, 199, 0.58);
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+.capsula {
+  align-items: center;
+  background: rgba(12, 8, 20, 0.84);
+  border: 1px solid rgba(192, 38, 255, 0.62);
+  border-radius: 999px;
+  bottom: clamp(4.5rem, 8vh, 6rem);
+  box-shadow: 0 0 18px rgba(192, 38, 255, 0.34);
+  color: var(--color-texto);
+  display: flex;
+  gap: 0.85rem;
+  left: 54%;
+  min-height: 3.2rem;
+  overflow: hidden;
+  padding: 0.55rem 1rem 0.55rem 0.65rem;
+  position: absolute;
+  text-decoration: none;
+  transform: translateX(-50%);
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+  z-index: 5;
+}
+
+.capsula::before,
+.capsula::after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+}
+
+.capsula::before {
+  background: linear-gradient(180deg, rgba(232, 217, 255, 0.1), rgba(192, 38, 255, 0.06));
+  border-radius: inherit;
+  inset: 1px;
+  opacity: 0;
+  transition: opacity 180ms ease;
+  z-index: 0;
+}
+
+.capsula::after {
+  background: linear-gradient(90deg, transparent, rgba(232, 217, 255, 0.72), rgba(192, 38, 255, 0.7), transparent);
+  border-radius: 999px;
+  bottom: 0.65rem;
+  box-shadow: 0 0 8px rgba(192, 38, 255, 0.58);
+  height: 1px;
+  left: 22%;
+  opacity: 0;
+  transform: translateX(-130%) scaleX(0.55);
+  width: 28%;
+  z-index: 1;
+}
+
+.capsula > * {
+  position: relative;
+  z-index: 2;
+}
+
+.capsula:hover,
+.capsula:focus-visible {
+  background: rgba(18, 10, 30, 0.9);
+  border-color: rgba(232, 217, 255, 0.48);
+  box-shadow: 0 0 26px rgba(192, 38, 255, 0.42);
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.capsula:hover::before,
+.capsula:focus-visible::before {
+  opacity: 1;
+}
+
+.capsula:hover::after,
+.capsula:focus-visible::after {
+  animation: capsula-destello 980ms ease-out forwards;
+}
+
+.capsula span:first-child {
+  background: linear-gradient(135deg, var(--color-neon), var(--color-violeta));
+  border-radius: 50%;
+  box-shadow: 0 0 18px var(--color-neon);
+  height: 2rem;
+  width: 2rem;
+}
+
+.retrato {
+  animation: retrato-contenedor-entrada 1150ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  bottom: clamp(1.35rem, 4vh, 3.2rem);
+  display: grid;
+  isolation: isolate;
+  justify-items: center;
+  position: absolute;
+  right: clamp(1rem, 3vw, 3rem);
+  width: min(112%, 43rem);
+  z-index: 2;
+}
+
+.retrato::after {
+  animation: retrato-franja-entrada 1250ms 120ms ease-out both;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(192, 38, 255, 0.14) 43%,
+    rgba(232, 217, 255, 0.92) 48%,
+    rgba(192, 38, 255, 0.55) 51%,
+    rgba(232, 217, 255, 0.92) 55%,
+    transparent 68%
+  );
+  content: '';
+  inset: 6% -8%;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transform: translateX(-75%) skewX(-16deg);
+  z-index: 4;
+}
+
+.retrato__resplandor,
+.retrato__contorno {
+  border-radius: 48% 52% 46% 54%;
+  grid-area: 1 / 1;
+}
+
+.retrato__resplandor {
+  animation: retrato-halo-entrada 560ms 850ms ease-out forwards;
+  align-self: center;
+  background: radial-gradient(circle, rgba(192, 38, 255, 0.48), transparent 64%);
+  filter: blur(20px);
+  height: 88%;
+  opacity: 0;
+  transition:
+    filter 180ms ease,
+    opacity 180ms ease,
+    transform 180ms ease;
+  width: 90%;
+}
+
+.retrato__imagen {
+  animation: retrato-revelar 1180ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  clip-path: polygon(0 0, 18% 0, 0 100%, 0 100%);
+  filter: drop-shadow(0 0 13px rgba(192, 38, 255, 0.72)) drop-shadow(0 32px 35px rgba(0, 0, 0, 0.76));
+  grid-area: 1 / 1;
+  height: clamp(420px, 70svh, 720px);
+  max-width: 100%;
+  object-fit: contain;
+  position: relative;
+  transform: translateY(16px) scale(0.96);
+  transform-origin: center bottom;
+  transition:
+    filter 180ms ease,
+    transform 180ms ease;
+  z-index: 2;
+}
+
+.retrato__contorno {
+  animation: retrato-halo-entrada 560ms 920ms ease-out forwards;
+  border: 1px solid rgba(232, 217, 255, 0.42);
+  border-radius: 44% 56% 48% 52%;
+  box-shadow: 0 0 26px rgba(192, 38, 255, 0.46);
+  height: 76%;
+  margin-top: 1.8rem;
+  opacity: 0;
+  transform: rotate(-7deg);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+  width: 72%;
+  z-index: 1;
+}
+
+.decoracion {
+  color: rgba(232, 217, 255, 0.08);
+  font-weight: 950;
+  pointer-events: none;
+  position: absolute;
+}
+
+.decoracion--codigo {
+  font-size: clamp(4rem, 7vw, 8rem);
+  line-height: 0.86;
+  right: -0.6rem;
+  top: 5rem;
+  width: 19rem;
+  z-index: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .retrato:hover::after {
+    animation: retrato-franja-hover 820ms ease-out forwards;
+  }
+
+  .retrato:hover .retrato__imagen {
+    filter: drop-shadow(0 0 18px rgba(192, 38, 255, 0.86)) drop-shadow(0 34px 38px rgba(0, 0, 0, 0.78));
+    transform: translateY(-6px);
+  }
+
+  .retrato:hover .retrato__resplandor {
+    filter: blur(23px);
+    opacity: 1;
+    transform: scale(1.04);
+  }
+
+  .retrato:hover .retrato__contorno {
+    border-color: rgba(232, 217, 255, 0.58);
+    box-shadow: 0 0 34px rgba(192, 38, 255, 0.6);
+    transform: rotate(-7deg) translateY(-3px);
+  }
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-cian);
+  outline-offset: 4px;
+}
+
+img {
+  display: block;
+}
+
+.sr-only {
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+
+  .boton,
+  .capsula {
+    transition-duration: 1ms;
+  }
+
+  .boton--primario::after,
+  .capsula::after {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+
+  .retrato__imagen,
+  .retrato__resplandor,
+  .retrato__contorno {
+    transition-duration: 1ms;
+  }
+
+  .retrato::after {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+
+  .retrato,
+  .retrato__imagen,
+  .retrato__resplandor,
+  .retrato__contorno {
+    animation: none !important;
+  }
+
+  .retrato__imagen {
+    clip-path: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .retrato__resplandor,
+  .retrato__contorno {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 980px) {
+  .capsula {
+    margin: 1.25rem auto 0;
+    order: 7;
+    position: static;
+    transform: none;
+    width: fit-content;
+  }
+
+  .capsula:hover,
+  .capsula:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  .retrato {
+    bottom: clamp(1.2rem, 3vh, 2rem);
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: min(100%, 38rem);
+  }
+
+  .retrato__imagen {
+    height: clamp(400px, 58svh, 600px);
+  }
+}
+
+@media (max-width: 560px) {
+  .capsula {
+    font-size: 0.9rem;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .retrato__imagen {
+    height: clamp(350px, 58svh, 480px);
+  }
+
+  .decoracion {
+    display: none;
+  }
+}
+
+@keyframes boton-destello {
+  0% {
+    opacity: 0;
+    transform: translateX(-140%) scaleX(0.55);
+  }
+
+  22% {
+    opacity: 0.95;
+  }
+
+  76% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(230%) scaleX(0.75);
+  }
+}
+
+@keyframes capsula-destello {
+  0% {
+    opacity: 0;
+    transform: translateX(-130%) scaleX(0.5);
+  }
+
+  20% {
+    opacity: 0.75;
+  }
+
+  78% {
+    opacity: 0.58;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(260%) scaleX(0.7);
+  }
+}
+
+@keyframes retrato-contenedor-entrada {
+  from {
+    opacity: 0.7;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes retrato-revelar {
+  0% {
+    clip-path: polygon(0 0, 18% 0, 0 100%, 0 100%);
+    opacity: 0.24;
+    transform: translateY(16px) scale(0.96);
+  }
+
+  38% {
+    opacity: 0.78;
+  }
+
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes retrato-franja-entrada {
+  0% {
+    opacity: 0;
+    transform: translateX(-72%) skewX(-16deg);
+  }
+
+  24% {
+    opacity: 0.9;
+  }
+
+  72% {
+    opacity: 0.78;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(72%) skewX(-16deg);
+  }
+}
+
+@keyframes retrato-franja-hover {
+  0% {
+    opacity: 0;
+    transform: translateX(-64%) skewX(-16deg);
+  }
+
+  25% {
+    opacity: 0.62;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(66%) skewX(-16deg);
+  }
+}
+
+@keyframes retrato-halo-entrada {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

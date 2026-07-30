@@ -1,0 +1,72 @@
+<section class="franja" id="tecnologias" aria-label="Tecnologias principales">
+  <div class="franja__encabezado">
+    <span aria-hidden="true"></span>
+    <p>STACK EN MOVIMIENTO</p>
+  </div>
+
+  <div class="franja__carriles">
+    <div class="franja__carril franja__carril--izquierda" aria-label="Tecnologias frontend y backend">
+      <div class="franja__track">
+        <ul class="tecnologias">
+          @for (tecnologia of tecnologiasSuperior; track tecnologia.nombre) {
+            <li class="tecnologia" tabindex="0">
+              <span class="tecnologia__icono" aria-hidden="true">
+                <img [src]="tecnologia.imagen" alt="" loading="lazy" />
+              </span>
+              <span class="tecnologia__contenido">
+                <span class="tecnologia__nombre">{{ tecnologia.nombre }}</span>
+                <span class="tecnologia__categoria">{{ tecnologia.categoria }}</span>
+              </span>
+            </li>
+          }
+        </ul>
+
+        <ul class="tecnologias" aria-hidden="true">
+          @for (tecnologia of tecnologiasSuperior; track tecnologia.nombre) {
+            <li class="tecnologia">
+              <span class="tecnologia__icono" aria-hidden="true">
+                <img [src]="tecnologia.imagen" alt="" loading="lazy" />
+              </span>
+              <span class="tecnologia__contenido">
+                <span class="tecnologia__nombre">{{ tecnologia.nombre }}</span>
+                <span class="tecnologia__categoria">{{ tecnologia.categoria }}</span>
+              </span>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div class="franja__carril franja__carril--derecha" aria-label="Tecnologias de datos e infraestructura">
+      <div class="franja__track">
+        <ul class="tecnologias">
+          @for (tecnologia of tecnologiasInferior; track tecnologia.nombre) {
+            <li class="tecnologia" tabindex="0">
+              <span class="tecnologia__icono" aria-hidden="true">
+                <img [src]="tecnologia.imagen" alt="" loading="lazy" />
+              </span>
+              <span class="tecnologia__contenido">
+                <span class="tecnologia__nombre">{{ tecnologia.nombre }}</span>
+                <span class="tecnologia__categoria">{{ tecnologia.categoria }}</span>
+              </span>
+            </li>
+          }
+        </ul>
+
+        <ul class="tecnologias" aria-hidden="true">
+          @for (tecnologia of tecnologiasInferior; track tecnologia.nombre) {
+            <li class="tecnologia">
+              <span class="tecnologia__icono" aria-hidden="true">
+                <img [src]="tecnologia.imagen" alt="" loading="lazy" />
+              </span>
+              <span class="tecnologia__contenido">
+                <span class="tecnologia__nombre">{{ tecnologia.nombre }}</span>
+                <span class="tecnologia__categoria">{{ tecnologia.categoria }}</span>
+              </span>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

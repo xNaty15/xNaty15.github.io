@@ -1,0 +1,120 @@
+.vista-previa {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: minmax(16rem, 0.28fr) minmax(0, 1fr);
+  margin: 1.2rem auto 0;
+  max-width: var(--ancho-contenido);
+  padding: 0 var(--espacio-pagina);
+}
+
+.tarjeta {
+  background: linear-gradient(180deg, rgba(14, 10, 22, 0.9), rgba(7, 4, 12, 0.95));
+  border: 1px solid var(--color-borde);
+  border-radius: 1rem;
+  box-shadow: 0 0 34px rgba(139, 44, 255, 0.12);
+  min-width: 0;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.tarjeta__encabezado,
+.proyecto__rotulo {
+  align-items: center;
+  display: flex;
+  gap: 0.7rem;
+}
+
+.tarjeta h2,
+.proyecto__rotulo p {
+  color: var(--color-texto);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.marcador,
+.proyecto__rotulo span {
+  color: var(--color-neon);
+  filter: drop-shadow(0 0 10px var(--color-neon));
+}
+
+.sobre__imagen {
+  border: 1px solid rgba(192, 38, 255, 0.22);
+  border-radius: 0.85rem;
+  display: grid;
+  justify-items: center;
+  margin: 0.9rem 0;
+  padding: 0.45rem;
+}
+
+.sobre__imagen img {
+  max-height: 13.5rem;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.tarjeta--sobre p {
+  color: var(--color-texto-secundario);
+  margin: 0;
+  text-align: center;
+}
+
+.proyecto__rotulo {
+  margin-bottom: 0.9rem;
+}
+
+.proyecto__rotulo span {
+  background: var(--color-neon);
+  border-radius: 999px;
+  height: 0.65rem;
+  width: 0.65rem;
+}
+
+.proyecto__contenido {
+  align-items: center;
+  display: grid;
+  gap: 1.3rem;
+  grid-template-columns: minmax(18rem, 0.95fr) minmax(15rem, 0.75fr);
+}
+
+.proyecto__contenido img {
+  border: 1px solid rgba(192, 38, 255, 0.38);
+  border-radius: 0.75rem;
+  box-shadow: 0 0 24px rgba(192, 38, 255, 0.16);
+  width: 100%;
+}
+
+.proyecto__texto h2 {
+  font-size: clamp(1.7rem, 2.4vw, 2.35rem);
+  margin-bottom: 0.65rem;
+}
+
+.proyecto__texto p,
+.proyecto__texto small {
+  color: var(--color-texto-secundario);
+  line-height: 1.6;
+}
+
+.proyecto__texto small {
+  display: block;
+}
+
+.proyecto__pendiente {
+  border: 1px solid rgba(192, 38, 255, 0.32);
+  border-radius: 999px;
+  color: var(--color-lavanda);
+  display: inline-flex;
+  margin: 1rem 0;
+  padding: 0.45rem 0.7rem;
+}
+
+@media (max-width: 900px) {
+  .vista-previa,
+  .proyecto__contenido {
+    grid-template-columns: 1fr;
+  }
+
+  .sobre__imagen img {
+    max-height: 15rem;
+  }
+}
