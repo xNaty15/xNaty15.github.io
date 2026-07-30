@@ -7,9 +7,7 @@ export interface ContactoOrbital {
   readonly tipo: TipoContactoOrbital;
   readonly ariaLabel: string;
   readonly tooltip: string;
-  readonly anguloInicial: number;
-  readonly anguloCompensado: number;
-  readonly duracion: string;
+  readonly retrasoAnimacion: string;
   readonly url?: string;
   readonly valorCopiable?: string;
 }

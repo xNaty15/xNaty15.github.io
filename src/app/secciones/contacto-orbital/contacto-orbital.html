@@ -1,69 +1,62 @@
-<section class="contacto-orbital" id="contacto" aria-labelledby="contacto-orbital-titulo">
+<section class="contacto-orbital" id="contacto" aria-label="Contacto">
   <div class="contacto-orbital__contenido">
-    <header class="contacto-orbital__encabezado">
-      <span>CONTACTO</span>
-      <h2 id="contacto-orbital-titulo">Conectemos</h2>
-      <p>Estoy abierta a colaborar en proyectos donde el diseño, el código y la seguridad se encuentren con intención.</p>
-    </header>
+    <p class="contacto-orbital__rotulo">CONTACTO</p>
 
     <div class="contacto-orbital__escena">
-      <div class="contacto-orbital__anillo" aria-hidden="true"></div>
-
-      <div class="contacto-orbital__bailarina" aria-hidden="true">
-        <video src="assets/videos/bailarina.mp4" autoplay loop muted [muted]="true" playsinline preload="metadata"></video>
-      </div>
+      <span class="contacto-orbital__trayectoria contacto-orbital__trayectoria--fondo" aria-hidden="true"></span>
+      <span class="contacto-orbital__trayectoria contacto-orbital__trayectoria--frente" aria-hidden="true"></span>
 
       <ul class="contacto-orbital__lista" aria-label="Opciones de contacto">
         @for (contacto of contactos; track contacto.id) {
-          <li
-            class="contacto-orbital__item"
-            [style.--angulo-inicial]="contacto.anguloInicial + 'deg'"
-            [style.--angulo-compensado]="contacto.anguloCompensado + 'deg'"
-            [style.--duracion-orbita]="contacto.duracion"
-          >
-            <span class="contacto-orbital__contrarrotacion">
-              @switch (contacto.tipo) {
-                @case ('enlace') {
-                  <a
-                    class="contacto-orbital__accion"
-                    [href]="contacto.url"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    [attr.aria-label]="contacto.ariaLabel"
-                    [attr.title]="contacto.tooltip"
-                  >
-                    <img [src]="contacto.icono" alt="" aria-hidden="true" />
-                  </a>
-                }
-                @case ('copiar') {
-                  <button
-                    class="contacto-orbital__accion"
-                    type="button"
-                    [attr.aria-label]="contacto.ariaLabel"
-                    [attr.title]="contacto.tooltip"
-                    (click)="copiarDiscord(contacto)"
-                  >
-                    <img [src]="contacto.icono" alt="" aria-hidden="true" />
-                  </button>
-                }
-                @default {
-                  <button
-                    class="contacto-orbital__accion contacto-orbital__accion--pendiente"
-                    type="button"
-                    disabled
-                    [attr.aria-label]="contacto.ariaLabel"
-                    [attr.title]="contacto.tooltip"
-                  >
-                    <img [src]="contacto.icono" alt="" aria-hidden="true" />
-                  </button>
-                }
+          <li class="contacto-orbital__item" [style.--retraso-contacto]="contacto.retrasoAnimacion">
+            @switch (contacto.tipo) {
+              @case ('enlace') {
+                <a
+                  class="contacto-orbital__accion"
+                  [href]="contacto.url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  [attr.aria-label]="contacto.ariaLabel"
+                  [attr.title]="contacto.tooltip"
+                >
+                  <img [src]="contacto.icono" alt="" aria-hidden="true" />
+                </a>
               }
-            </span>
+              @case ('copiar') {
+                <button
+                  class="contacto-orbital__accion"
+                  type="button"
+                  aria-describedby="contacto-estado"
+                  [attr.aria-label]="contacto.ariaLabel"
+                  [attr.title]="contacto.tooltip"
+                  (click)="copiarDiscord(contacto)"
+                >
+                  <img [src]="contacto.icono" alt="" aria-hidden="true" />
+                </button>
+              }
+              @default {
+                <button
+                  class="contacto-orbital__accion contacto-orbital__accion--pendiente"
+                  type="button"
+                  disabled
+                  [attr.aria-label]="contacto.ariaLabel"
+                  [attr.title]="contacto.tooltip"
+                >
+                  <img [src]="contacto.icono" alt="" aria-hidden="true" />
+                </button>
+              }
+            }
           </li>
         }
       </ul>
 
-      <p class="contacto-orbital__estado" id="contacto-estado" aria-live="polite">{{ mensajeCopiado() }}</p>
+      <span class="contacto-orbital__mascara" aria-hidden="true"></span>
+
+      <div class="contacto-orbital__bailarina" aria-hidden="true">
+        <img src="assets/imagenes/bailarina-contacto.gif" alt="" />
+      </div>
+
+      <span class="contacto-orbital__estado" id="contacto-estado" aria-live="polite">{{ mensajeCopiado() }}</span>
     </div>
   </div>
 </section>

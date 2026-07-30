@@ -9,9 +9,7 @@ export const contactosOrbitales: readonly ContactoOrbital[] = [
     url: 'https://github.com/xNaty15',
     ariaLabel: 'Abrir GitHub de Nathalia en una pestaña nueva',
     tooltip: 'GitHub',
-    anguloInicial: -92,
-    anguloCompensado: 92,
-    duracion: '28s',
+    retrasoAnimacion: '0s',
   },
   {
     id: 'instagram',
@@ -21,9 +19,7 @@ export const contactosOrbitales: readonly ContactoOrbital[] = [
     url: 'https://www.instagram.com/nath_pzlz/',
     ariaLabel: 'Abrir Instagram de Nathalia en una pestaña nueva',
     tooltip: 'Instagram',
-    anguloInicial: -18,
-    anguloCompensado: 18,
-    duracion: '31s',
+    retrasoAnimacion: '-3.6s',
   },
   {
     id: 'whatsapp',
@@ -33,9 +29,7 @@ export const contactosOrbitales: readonly ContactoOrbital[] = [
     url: 'https://wa.me/50492664604',
     ariaLabel: 'Abrir WhatsApp para contactar a Nathalia',
     tooltip: 'WhatsApp',
-    anguloInicial: 58,
-    anguloCompensado: -58,
-    duracion: '29s',
+    retrasoAnimacion: '-7.2s',
   },
   {
     id: 'discord',
@@ -45,9 +39,7 @@ export const contactosOrbitales: readonly ContactoOrbital[] = [
     valorCopiable: 'xkatylinux',
     ariaLabel: 'Copiar usuario de Discord xkatylinux',
     tooltip: 'Copiar Discord',
-    anguloInicial: 145,
-    anguloCompensado: -145,
-    duracion: '33s',
+    retrasoAnimacion: '-10.8s',
   },
   {
     id: 'gmail',
@@ -56,8 +48,6 @@ export const contactosOrbitales: readonly ContactoOrbital[] = [
     tipo: 'pendiente',
     ariaLabel: 'Gmail pendiente: correo próximamente',
     tooltip: 'Correo próximamente',
-    anguloInicial: 222,
-    anguloCompensado: -222,
-    duracion: '30s',
+    retrasoAnimacion: '-14.4s',
   },
 ];

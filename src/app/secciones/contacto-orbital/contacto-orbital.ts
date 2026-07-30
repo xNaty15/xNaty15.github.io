@@ -26,9 +26,7 @@ export class ContactoOrbital implements OnDestroy {
     }
 
     const copiado = await this.copiarTexto(contacto.valorCopiable);
-    this.mensajeCopiado.set(
-      copiado ? `Discord copiado: ${contacto.valorCopiable}` : `Discord: ${contacto.valorCopiable}`,
-    );
+    this.mensajeCopiado.set(copiado ? 'Usuario de Discord copiado' : `Usuario de Discord: ${contacto.valorCopiable}`);
 
     if (this.temporizadorEstado !== undefined) {
       window.clearTimeout(this.temporizadorEstado);

@@ -1,203 +1,223 @@
 .contacto-orbital {
-  background:
-    radial-gradient(circle at 58% 45%, rgba(192, 38, 255, 0.16), transparent 24rem),
-    linear-gradient(180deg, rgba(5, 3, 10, 0.32), rgba(13, 8, 22, 0.9), rgba(5, 3, 10, 0.72));
-  margin-top: clamp(2.5rem, 6vw, 5rem);
+  background: rgba(139, 44, 255, 0.06);
+  margin-top: clamp(2rem, 5vw, 4rem);
   overflow: clip;
-  padding: clamp(3rem, 6vw, 5.5rem) var(--espacio-pagina);
+  padding: clamp(2.2rem, 5vw, 4.8rem) var(--espacio-pagina);
 }
 
 .contacto-orbital__contenido {
-  display: grid;
-  gap: clamp(2rem, 6vw, 5rem);
-  grid-template-columns: minmax(16rem, 0.62fr) minmax(22rem, 1fr);
   margin: 0 auto;
-  max-width: var(--ancho-contenido);
+  max-width: 58rem;
+  text-align: center;
 }
 
-.contacto-orbital__encabezado {
-  max-width: 34rem;
-}
-
-.contacto-orbital__encabezado span {
-  color: var(--color-cian);
+.contacto-orbital__rotulo {
+  color: #55dde0;
   font-size: 0.82rem;
-  font-weight: 800;
-}
-
-.contacto-orbital__encabezado h2 {
-  font-size: 4.8rem;
-  line-height: 1;
-  margin: 0.7rem 0 1rem;
-}
-
-.contacto-orbital__encabezado p {
-  color: var(--color-texto-secundario);
-  line-height: 1.7;
-  margin: 0;
+  letter-spacing: 0.22em;
+  margin: 0 0 clamp(0.8rem, 2vw, 1.3rem);
 }
 
 .contacto-orbital__escena {
-  --icono: clamp(3.25rem, 5vw, 4.7rem);
-  --radio: clamp(9.2rem, 18vw, 16.5rem);
+  --bailarina: clamp(18.75rem, 29vw, 25rem);
+  --distancia: clamp(12rem, 35vw, 25rem);
+  --icono: clamp(2.75rem, 4vw, 3.6rem);
+  --y-fondo: -3.5rem;
+  --y-frente: 4.2rem;
   display: grid;
-  min-height: clamp(25rem, 48vw, 42rem);
+  min-height: clamp(25rem, 42vw, 32rem);
   place-items: center;
   position: relative;
 }
 
-.contacto-orbital__anillo,
-.contacto-orbital__bailarina,
-.contacto-orbital__lista,
-.contacto-orbital__estado {
-  grid-area: 1 / 1;
-}
-
-.contacto-orbital__anillo {
-  border: 1px solid rgba(232, 217, 255, 0.18);
+.contacto-orbital__trayectoria {
+  border: 1px solid rgba(232, 217, 255, 0.14);
   border-radius: 50%;
-  height: calc(var(--radio) * 2 + var(--icono));
-  pointer-events: none;
-  width: calc(var(--radio) * 2 + var(--icono));
+  height: 4.8rem;
+  opacity: 0.55;
+  position: absolute;
+  transform: translateY(var(--y-fondo)) scaleY(0.28);
+  width: min(100%, calc(var(--distancia) * 2 + var(--icono)));
+  z-index: 1;
 }
 
-.contacto-orbital__bailarina {
-  aspect-ratio: 1;
-  background: radial-gradient(circle, rgba(232, 217, 255, 0.18), rgba(139, 44, 255, 0.08) 52%, transparent 73%);
-  border: 1px solid rgba(232, 217, 255, 0.28);
-  border-radius: 50%;
-  display: grid;
-  overflow: hidden;
-  place-items: center;
-  width: clamp(10.5rem, 21vw, 20rem);
-  z-index: 2;
-}
-
-.contacto-orbital__bailarina video {
-  filter: brightness(1.08) contrast(1.22) saturate(0.86);
-  height: 86%;
-  mix-blend-mode: screen;
-  object-fit: cover;
-  opacity: 0.9;
-  transform: scale(1.7);
-  width: 180%;
+.contacto-orbital__trayectoria--frente {
+  transform: translateY(var(--y-frente)) scaleY(0.32);
 }
 
 .contacto-orbital__lista {
-  height: 1px;
+  inset: 0;
   list-style: none;
   margin: 0;
   padding: 0;
-  position: relative;
-  width: 1px;
-  z-index: 4;
+  position: absolute;
 }
 
 .contacto-orbital__item {
-  animation: contacto-orbita var(--duracion-orbita) linear infinite;
+  animation: contacto-carrusel 18s linear infinite;
+  animation-delay: var(--retraso-contacto);
   height: var(--icono);
   left: 50%;
   margin: calc(var(--icono) / -2);
+  opacity: 1;
   position: absolute;
   top: 50%;
-  transform: rotate(var(--angulo-inicial)) translateX(var(--radio));
+  transform: translate3d(calc(var(--distancia) * -1), var(--y-frente), 0) scale(1);
   width: var(--icono);
-}
-
-.contacto-orbital__contrarrotacion {
-  animation: contacto-contrarrotar var(--duracion-orbita) linear infinite;
-  display: block;
-  transform: rotate(var(--angulo-compensado));
+  z-index: 6;
 }
 
 .contacto-orbital__accion {
-  background: rgba(9, 6, 15, 0.88);
-  border: 1px solid rgba(232, 217, 255, 0.22);
+  background: rgba(9, 6, 15, 0.9);
+  border: 1px solid rgba(172, 120, 255, 0.45);
   border-radius: 50%;
-  box-shadow: 0 0 22px rgba(139, 44, 255, 0.24);
   cursor: pointer;
   display: grid;
-  height: var(--icono);
-  padding: 0.78rem;
+  height: 100%;
+  padding: 0.58rem;
   place-items: center;
-  transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, filter 180ms ease, transform 180ms ease;
-  width: var(--icono);
+  transition: 180ms ease;
+  width: 100%;
 }
 
 .contacto-orbital__accion img {
   height: 100%;
-  object-fit: contain;
   width: 100%;
 }
 
 .contacto-orbital__accion:is(:hover, :focus-visible) {
-  background: rgba(21, 13, 34, 0.96);
-  border-color: rgba(232, 217, 255, 0.56);
-  box-shadow: 0 0 30px rgba(192, 38, 255, 0.46), 0 0 18px rgba(85, 221, 224, 0.18);
-  transform: translateY(-3px) scale(1.05);
+  border-color: #55dde0;
+  box-shadow: 0 0 18px rgba(192, 38, 255, 0.42);
+  transform: scale(1.07);
 }
 
 .contacto-orbital__accion--pendiente {
-  filter: grayscale(0.8);
-  opacity: 0.48;
+  opacity: 0.5;
 }
 
-.contacto-orbital__escena:is(:hover, :focus-within) .contacto-orbital__item,
-.contacto-orbital__escena:is(:hover, :focus-within) .contacto-orbital__contrarrotacion {
-  animation-play-state: paused;
+.contacto-orbital__mascara {
+  background: radial-gradient(ellipse at center, rgba(5, 3, 10, 0.96) 36%, rgba(5, 3, 10, 0.78) 56%, transparent 78%);
+  height: calc(var(--bailarina) * 0.72);
+  pointer-events: none;
+  position: absolute;
+  width: calc(var(--bailarina) * 0.52);
+  z-index: 3;
+}
+
+.contacto-orbital__bailarina {
+  position: relative;
+  width: var(--bailarina);
+  z-index: 4;
+}
+
+.contacto-orbital__bailarina img {
+  filter: invert(1) contrast(1.12);
+  mask-image: radial-gradient(ellipse 42% 50% at center, #000 52%, rgba(0, 0, 0, 0.82) 66%, transparent 84%);
+  mix-blend-mode: lighten;
+  width: 100%;
 }
 
 .contacto-orbital__estado {
-  align-self: end;
-  color: var(--color-lavanda);
-  font-size: 0.78rem;
-  min-height: 1.2rem;
-  z-index: 5;
+  bottom: 0;
+  left: 0;
+  min-height: 1.25rem;
+  position: absolute;
+  right: 0;
+  z-index: 7;
 }
 
-@media (max-width: 900px) {
-  .contacto-orbital__contenido {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
+.contacto-orbital__escena:is(:hover, :focus-within) .contacto-orbital__item {
+  animation-play-state: paused;
 }
 
 @media (max-width: 560px) {
-  .contacto-orbital__encabezado h2 {
-    font-size: 3.2rem;
-  }
-
   .contacto-orbital__escena {
-    --icono: clamp(2.8rem, 12vw, 3.4rem);
-    --radio: clamp(7.5rem, 36vw, 8.8rem);
-    min-height: 22.5rem;
-  }
-
-  .contacto-orbital__bailarina {
-    width: clamp(8.4rem, 44vw, 9.6rem);
+    --bailarina: clamp(13rem, 60vw, 15.5rem);
+    --distancia: clamp(7.2rem, 35vw, 9rem);
+    --icono: clamp(2.55rem, 12vw, 3rem);
+    --y-fondo: -2.6rem;
+    --y-frente: 3.2rem;
+    min-height: 21rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .contacto-orbital__item,
-  .contacto-orbital__contrarrotacion {
+  .contacto-orbital__escena {
+    grid-template-rows: auto auto;
+    min-height: 0;
+  }
+
+  .contacto-orbital__trayectoria,
+  .contacto-orbital__mascara {
+    display: none;
+  }
+
+  .contacto-orbital__bailarina,
+  .contacto-orbital__lista,
+  .contacto-orbital__item {
+    position: static;
+    transform: none;
+  }
+
+  .contacto-orbital__lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-top: 1rem;
+    order: 2;
+  }
+
+  .contacto-orbital__item {
     animation: none !important;
+    margin: 0;
   }
 
-  .contacto-orbital__accion {
-    transition-duration: 1ms;
-  }
-}
-
-@keyframes contacto-orbita {
-  to {
-    transform: rotate(calc(var(--angulo-inicial) + 360deg)) translateX(var(--radio));
+  .contacto-orbital__bailarina {
+    order: 1;
   }
 }
 
-@keyframes contacto-contrarrotar {
-  to {
-    transform: rotate(calc(var(--angulo-compensado) - 360deg));
+@keyframes contacto-carrusel {
+  0% {
+    filter: none;
+    opacity: 1;
+    transform: translate3d(calc(var(--distancia) * -1), var(--y-frente), 0) scale(1);
+    z-index: 6;
+  }
+
+  24% {
+    filter: none;
+    opacity: 1;
+    transform: translate3d(0, var(--y-frente), 0) scale(1.04);
+    z-index: 6;
+  }
+
+  49% {
+    filter: none;
+    opacity: 0.96;
+    transform: translate3d(var(--distancia), var(--y-frente), 0) scale(1);
+    z-index: 6;
+  }
+
+  50% {
+    filter: blur(0.4px);
+    opacity: 0.42;
+    transform: translate3d(var(--distancia), var(--y-fondo), 0) scale(0.82);
+    z-index: 1;
+  }
+
+  74% {
+    filter: blur(0.8px);
+    opacity: 0.18;
+    transform: translate3d(0, var(--y-fondo), 0) scale(0.78);
+    z-index: 1;
+  }
+
+  100% {
+    filter: blur(0.4px);
+    opacity: 0.42;
+    transform: translate3d(calc(var(--distancia) * -1), var(--y-fondo), 0) scale(0.82);
+    z-index: 1;
   }
 }
