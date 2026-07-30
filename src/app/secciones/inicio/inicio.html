@@ -32,8 +32,18 @@
       <p class="sr-only" id="cv-pendiente">Currículum público pendiente de autorización.</p>
     </div>
 
-    <div class="hero__visual" aria-label="Fotografía de Nathalia Pérez">
-      <div class="decoracion decoracion--codigo" aria-hidden="true">CODE<br />BUILD<br />SECURE</div>
+    <div
+      class="hero__visual"
+      [class.hero__visual--hover]="animandoHover()"
+      aria-label="Fotografía de Nathalia Pérez"
+      (mouseenter)="activarHoverRetrato()"
+      (animationend)="finalizarHoverRetrato($event)"
+    >
+      <div class="decoracion decoracion--nombre" aria-hidden="true">
+        <span>NATHALIA</span>
+        <span>PÉREZ</span>
+      </div>
+      <span class="hero__corte-diagonal" aria-hidden="true"></span>
       <div class="retrato" aria-hidden="false">
         <span class="retrato__resplandor" aria-hidden="true"></span>
         <img
@@ -42,6 +52,16 @@
           alt="Nathalia Pérez, estudiante de Ingeniería en Computación"
         />
         <span class="retrato__contorno" aria-hidden="true"></span>
+      </div>
+      <div class="hero__callouts" aria-hidden="true">
+        <span class="hero__callout hero__callout--stack">
+          <small>01</small>
+          FULL STACK JUNIOR
+        </span>
+        <span class="hero__callout hero__callout--student">
+          <small>02</small>
+          ESTUDIANTE DE INGENIERÍA EN COMPUTACIÓN
+        </span>
       </div>
     </div>
 
