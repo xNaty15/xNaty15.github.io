@@ -1,48 +1,40 @@
 .contacto-orbital {
-  background: rgba(139, 44, 255, 0.06);
-  margin-top: clamp(2rem, 5vw, 4rem);
+  background: rgba(139, 44, 255, 0.05);
+  margin-top: clamp(1rem, 3vw, 2.4rem);
   overflow: clip;
-  padding: clamp(2.2rem, 5vw, 4.8rem) var(--espacio-pagina);
+  padding: clamp(1.5rem, 3vw, 3rem) var(--espacio-pagina);
 }
 
 .contacto-orbital__contenido {
   margin: 0 auto;
-  max-width: 58rem;
+  max-width: 56rem;
   text-align: center;
 }
 
 .contacto-orbital__rotulo {
   color: #55dde0;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   letter-spacing: 0.22em;
-  margin: 0 0 clamp(0.8rem, 2vw, 1.3rem);
+  margin: 0 0 0.75rem;
 }
 
 .contacto-orbital__escena {
-  --bailarina: clamp(18.75rem, 29vw, 25rem);
-  --distancia: clamp(12rem, 35vw, 25rem);
-  --icono: clamp(2.75rem, 4vw, 3.6rem);
-  --y-fondo: -3.5rem;
-  --y-frente: 4.2rem;
+  --bailarina: clamp(11.25rem, 20vw, 16.875rem);
+  --icono: clamp(2.75rem, 4vw, 3.5rem);
+  --recorrido: clamp(18rem, 40vw, 30rem);
   display: grid;
-  min-height: clamp(25rem, 42vw, 32rem);
+  min-height: clamp(15.5rem, 28vw, 20rem);
+  overflow: clip;
   place-items: center;
   position: relative;
 }
 
 .contacto-orbital__trayectoria {
-  border: 1px solid rgba(232, 217, 255, 0.14);
-  border-radius: 50%;
-  height: 4.8rem;
-  opacity: 0.55;
+  background: linear-gradient(90deg, transparent, rgba(232, 217, 255, 0.18), transparent);
+  height: 1px;
   position: absolute;
-  transform: translateY(var(--y-fondo)) scaleY(0.28);
-  width: min(100%, calc(var(--distancia) * 2 + var(--icono)));
+  width: min(100%, calc(var(--recorrido) * 2));
   z-index: 1;
-}
-
-.contacto-orbital__trayectoria--frente {
-  transform: translateY(var(--y-frente)) scaleY(0.32);
 }
 
 .contacto-orbital__lista {
@@ -51,23 +43,26 @@
   margin: 0;
   padding: 0;
   position: absolute;
+  z-index: 2;
 }
 
 .contacto-orbital__item {
-  animation: contacto-carrusel 18s linear infinite;
+  animation: contacto-desplazar 18s linear infinite;
   animation-delay: var(--retraso-contacto);
+  backface-visibility: hidden;
   height: var(--icono);
   left: 50%;
   margin: calc(var(--icono) / -2);
-  opacity: 1;
   position: absolute;
   top: 50%;
-  transform: translate3d(calc(var(--distancia) * -1), var(--y-frente), 0) scale(1);
+  transform: translate3d(calc(var(--recorrido) * -1), 0, 0);
   width: var(--icono);
-  z-index: 6;
+  will-change: transform;
 }
 
 .contacto-orbital__accion {
+  animation: contacto-ocultar 18s linear infinite;
+  animation-delay: var(--retraso-contacto);
   background: rgba(9, 6, 15, 0.9);
   border: 1px solid rgba(172, 120, 255, 0.45);
   border-radius: 50%;
@@ -76,7 +71,7 @@
   height: 100%;
   padding: 0.58rem;
   place-items: center;
-  transition: 180ms ease;
+  transition: 220ms ease;
   width: 100%;
 }
 
@@ -88,7 +83,7 @@
 .contacto-orbital__accion:is(:hover, :focus-visible) {
   border-color: #55dde0;
   box-shadow: 0 0 18px rgba(192, 38, 255, 0.42);
-  transform: scale(1.07);
+  transform: scale(1.06);
 }
 
 .contacto-orbital__accion--pendiente {
@@ -96,11 +91,11 @@
 }
 
 .contacto-orbital__mascara {
-  background: radial-gradient(ellipse at center, rgba(5, 3, 10, 0.96) 36%, rgba(5, 3, 10, 0.78) 56%, transparent 78%);
-  height: calc(var(--bailarina) * 0.72);
+  background: radial-gradient(ellipse at center, rgba(5, 3, 10, 0.98) 38%, rgba(5, 3, 10, 0.76) 63%, transparent 82%);
+  height: calc(var(--bailarina) * 0.92);
   pointer-events: none;
   position: absolute;
-  width: calc(var(--bailarina) * 0.52);
+  width: calc(var(--bailarina) * 0.74);
   z-index: 3;
 }
 
@@ -120,24 +115,23 @@
 .contacto-orbital__estado {
   bottom: 0;
   left: 0;
-  min-height: 1.25rem;
+  min-height: 1.2rem;
   position: absolute;
   right: 0;
-  z-index: 7;
+  z-index: 5;
 }
 
-.contacto-orbital__escena:is(:hover, :focus-within) .contacto-orbital__item {
+.contacto-orbital__escena:is(:hover, :focus-within) .contacto-orbital__item,
+.contacto-orbital__escena:is(:hover, :focus-within) .contacto-orbital__accion {
   animation-play-state: paused;
 }
 
 @media (max-width: 560px) {
   .contacto-orbital__escena {
-    --bailarina: clamp(13rem, 60vw, 15.5rem);
-    --distancia: clamp(7.2rem, 35vw, 9rem);
-    --icono: clamp(2.55rem, 12vw, 3rem);
-    --y-fondo: -2.6rem;
-    --y-frente: 3.2rem;
-    min-height: 21rem;
+    --bailarina: clamp(9rem, 47vw, 11.5rem);
+    --icono: clamp(2.55rem, 11vw, 2.8rem);
+    --recorrido: clamp(10rem, 46vw, 12.5rem);
+    min-height: 14.5rem;
   }
 }
 
@@ -164,13 +158,15 @@
     flex-wrap: wrap;
     gap: 0.75rem;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 0.9rem;
     order: 2;
   }
 
-  .contacto-orbital__item {
+  .contacto-orbital__item,
+  .contacto-orbital__accion {
     animation: none !important;
     margin: 0;
+    opacity: 1;
   }
 
   .contacto-orbital__bailarina {
@@ -178,46 +174,30 @@
   }
 }
 
-@keyframes contacto-carrusel {
-  0% {
-    filter: none;
-    opacity: 1;
-    transform: translate3d(calc(var(--distancia) * -1), var(--y-frente), 0) scale(1);
-    z-index: 6;
+@keyframes contacto-desplazar {
+  to {
+    transform: translate3d(var(--recorrido), 0, 0);
   }
+}
 
-  24% {
-    filter: none;
-    opacity: 1;
-    transform: translate3d(0, var(--y-frente), 0) scale(1.04);
-    z-index: 6;
-  }
-
-  49% {
-    filter: none;
-    opacity: 0.96;
-    transform: translate3d(var(--distancia), var(--y-frente), 0) scale(1);
-    z-index: 6;
-  }
-
-  50% {
-    filter: blur(0.4px);
-    opacity: 0.42;
-    transform: translate3d(var(--distancia), var(--y-fondo), 0) scale(0.82);
-    z-index: 1;
-  }
-
-  74% {
-    filter: blur(0.8px);
-    opacity: 0.18;
-    transform: translate3d(0, var(--y-fondo), 0) scale(0.78);
-    z-index: 1;
-  }
-
+@keyframes contacto-ocultar {
+  0%,
+  34%,
+  66%,
   100% {
+    filter: none;
+    opacity: 1;
+  }
+
+  43%,
+  57% {
     filter: blur(0.4px);
-    opacity: 0.42;
-    transform: translate3d(calc(var(--distancia) * -1), var(--y-fondo), 0) scale(0.82);
-    z-index: 1;
+    opacity: 0.24;
+  }
+
+  49%,
+  51% {
+    filter: blur(0.6px);
+    opacity: 0;
   }
 }

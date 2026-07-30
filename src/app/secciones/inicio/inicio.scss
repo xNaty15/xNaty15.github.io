@@ -191,10 +191,21 @@ app-franja-tecnologias {
 }
 
 .hero__pieza {
-  animation: pieza-in 1250ms var(--retardo) cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation:
+    pieza-in 1250ms var(--retardo) cubic-bezier(0.16, 1, 0.3, 1) both,
+    pieza-salir 580ms 2150ms ease-out forwards;
+  background: rgba(232, 217, 255, 0.08);
+  border-block: 1px solid rgba(232, 217, 255, 0.36);
+  opacity: 0;
   overflow: hidden;
   transform-origin: center bottom;
-  z-index: 2;
+  z-index: 3;
+}
+
+.hero__foto--base {
+  filter: grayscale(1) brightness(0.18) saturate(0.45);
+  opacity: 0.16;
+  z-index: 1;
 }
 
 .hero__foto--oscura {
@@ -209,6 +220,14 @@ app-franja-tecnologias {
   opacity: 0;
 }
 
+.hero__foto--final {
+  animation: foto-final 780ms 1640ms ease-out both;
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  opacity: 0;
+  transition: filter 420ms ease;
+  z-index: 4;
+}
+
 .hero__separador,
 .hero__barrido {
   pointer-events: none;
@@ -220,7 +239,7 @@ app-franja-tecnologias {
   background: linear-gradient(90deg, transparent, rgba(232, 217, 255, 0.62), rgba(192, 38, 255, 0.36), transparent);
   height: 1px;
   left: -10%;
-  opacity: 0.3;
+  opacity: 0.08;
   top: var(--top);
   width: 120%;
   z-index: 4;
@@ -278,36 +297,10 @@ app-franja-tecnologias {
   bottom: clamp(1.4rem, 4vh, 3rem);
 }
 
-.hero__visual--hover .hero__pieza--superior {
-  animation: hover-pieza 2100ms ease-out both;
-}
-
-.hero__visual--hover .hero__pieza--inferior {
-  animation: hover-pieza 2100ms ease-out both;
-}
-
-.hero__visual--hover .hero__foto--oscura {
-  animation: fade-out 2100ms ease-out both;
-}
-
-.hero__visual--hover .hero__foto--color {
-  animation: color-foto 2100ms ease-out both;
-}
-
-.hero__visual--hover .hero__barrido {
-  animation: barrido 1200ms 520ms ease-out both;
-}
-
-.hero__visual--hover .hero__halo {
-  animation: halo-in 900ms 1200ms ease-out both;
-}
-
-.hero__visual--hover .hero__callout--stack {
-  animation: etiqueta-in 420ms 1420ms ease-out both;
-}
-
-.hero__visual--hover .hero__callout--student {
-  animation: etiqueta-in 420ms 1720ms ease-out both, fade-in 1ms 2180ms both;
+@media (hover: hover) and (pointer: fine) {
+  .hero__visual:hover .hero__foto--final {
+    filter: grayscale(1);
+  }
 }
 
 @keyframes fade-out {
@@ -343,6 +336,12 @@ app-franja-tecnologias {
   }
 }
 
+@keyframes pieza-salir {
+  to {
+    opacity: 0;
+  }
+}
+
 @keyframes color-foto {
   0%,
   24% {
@@ -353,6 +352,19 @@ app-franja-tecnologias {
   62% {
     clip-path: polygon(0 0, 72% 0, 46% 100%, 0 100%);
     opacity: 1;
+  }
+
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+  }
+}
+
+@keyframes foto-final {
+  0%,
+  18% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    opacity: 0;
   }
 
   to {
@@ -393,18 +405,6 @@ app-franja-tecnologias {
   to {
     opacity: 1;
     transform: none;
-  }
-}
-
-@keyframes hover-pieza {
-  0%,
-  100% {
-    transform: none;
-  }
-
-  28%,
-  58% {
-    transform: translate(var(--hx), var(--hy));
   }
 }
 
@@ -537,6 +537,7 @@ app-franja-tecnologias {
   .hero__pieza,
   .hero__foto--oscura,
   .hero__foto--color,
+  .hero__foto--final,
   .hero__separador,
   .hero__halo,
   .hero__callout {
@@ -551,16 +552,23 @@ app-franja-tecnologias {
   .capsula,
   .decoracion--nombre,
   .hero__foto--color,
+  .hero__foto--final,
   .hero__halo,
   .hero__callout {
     opacity: 1;
   }
 
+  .hero__pieza {
+    display: none;
+  }
+
+  .hero__foto--base,
   .hero__foto--oscura {
     opacity: 0;
   }
 
-  .hero__foto--color {
+  .hero__foto--color,
+  .hero__foto--final {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 

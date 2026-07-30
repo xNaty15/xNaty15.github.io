@@ -34,10 +34,7 @@
 
     <div
       class="hero__visual"
-      [class.hero__visual--hover]="animandoHover()"
       aria-label="Fotografía de Nathalia Pérez"
-      (mouseenter)="activarHoverRetrato()"
-      (animationend)="finalizarHoverRetrato($event)"
     >
       <div class="decoracion decoracion--nombre" aria-hidden="true">
         <span>NATHALIA</span>
@@ -65,8 +62,7 @@
       <div class="hero__escena" aria-hidden="true">
         <span class="hero__halo"></span>
         <img
-          class="hero__foto"
-          style="filter: grayscale(1) brightness(0.2) saturate(0.45); opacity: 0.14; z-index: 1"
+          class="hero__foto hero__foto--base"
           src="assets/imagenes/nathalia-perfil.png"
           alt=""
         />
@@ -76,10 +72,8 @@
           style="
             --dx: -3rem;
             --dy: -1.4rem;
-            --hx: -0.55rem;
-            --hy: -0.45rem;
             --retardo: 360ms;
-            clip-path: polygon(0 0, 100% 0, 100% 38%, 0 54%);
+            clip-path: polygon(0 10%, 100% 0, 100% 43%, 0 59%);
           "
         >
           <img class="hero__foto hero__foto--oscura" src="assets/imagenes/nathalia-perfil.png" alt="" />
@@ -91,15 +85,15 @@
           style="
             --dx: 3rem;
             --dy: 1.7rem;
-            --hx: 0.65rem;
-            --hy: 0.55rem;
             --retardo: 470ms;
-            clip-path: polygon(0 50%, 100% 34%, 100% 100%, 0 100%);
+            clip-path: polygon(0 56%, 100% 38%, 100% 84%, 0 100%);
           "
         >
           <img class="hero__foto hero__foto--oscura" src="assets/imagenes/nathalia-perfil.png" alt="" />
           <img class="hero__foto hero__foto--color" src="assets/imagenes/nathalia-perfil.png" alt="" />
         </div>
+
+        <img class="hero__foto hero__foto--final" src="assets/imagenes/nathalia-perfil.png" alt="" />
 
         <span class="hero__separador" style="--top: 39%"></span>
         <span class="hero__separador" style="--top: 52%"></span>
