@@ -20,7 +20,7 @@ export class Inicio {
     }
 
     this.animandoHover.set(true);
-    this.hoverFallback = setTimeout(() => this.limpiarHoverRetrato(), 1800);
+    this.hoverFallback = setTimeout(() => this.limpiarHoverRetrato(), 2600);
   }
 
   protected finalizarHoverRetrato(event: AnimationEvent): void {
