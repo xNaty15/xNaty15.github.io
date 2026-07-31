@@ -2,39 +2,35 @@
   background: rgba(139, 44, 255, 0.05);
   margin-top: clamp(1rem, 3vw, 2.4rem);
   overflow: clip;
-  padding: clamp(1.5rem, 3vw, 3rem) var(--espacio-pagina);
+  padding: clamp(1.35rem, 2.8vw, 2.5rem) var(--espacio-pagina) clamp(0.35rem, 1vw, 0.85rem);
 }
 
 .contacto-orbital__contenido {
   margin: 0 auto;
-  max-width: 56rem;
+  max-width: 44rem;
   text-align: center;
 }
 
 .contacto-orbital__rotulo {
-  color: #55dde0;
-  font-size: 0.8rem;
+  color: #73f7ff;
+  font-size: 0.82rem;
+  font-weight: 800;
   letter-spacing: 0.22em;
-  margin: 0 0 0.75rem;
+  margin: 0 0 clamp(0.55rem, 1.4vw, 1rem);
 }
 
 .contacto-orbital__escena {
-  --bailarina: clamp(11.25rem, 20vw, 16.875rem);
-  --icono: clamp(2.75rem, 4vw, 3.5rem);
-  --recorrido: clamp(18rem, 40vw, 30rem);
+  --bailarina: clamp(10rem, 17vw, 13.75rem);
+  --icono: clamp(2.6rem, 3.5vw, 3.25rem);
+  --radio-x: clamp(8.5rem, 19vw, 16.5rem);
+  --y-frente: clamp(2.55rem, 4.8vw, 4.2rem);
+  --y-fondo: calc(var(--y-frente) * -0.8);
   display: grid;
-  min-height: clamp(15.5rem, 28vw, 20rem);
-  overflow: clip;
+  height: clamp(14.5rem, 24vw, 19rem);
+  margin: 0 auto;
+  max-width: min(100%, 40rem);
   place-items: center;
   position: relative;
-}
-
-.contacto-orbital__trayectoria {
-  background: linear-gradient(90deg, transparent, rgba(232, 217, 255, 0.18), transparent);
-  height: 1px;
-  position: absolute;
-  width: min(100%, calc(var(--recorrido) * 2));
-  z-index: 1;
 }
 
 .contacto-orbital__lista {
@@ -43,26 +39,23 @@
   margin: 0;
   padding: 0;
   position: absolute;
-  z-index: 2;
 }
 
 .contacto-orbital__item {
-  animation: contacto-desplazar 18s linear infinite;
+  animation: contacto-orbita-compacta 18s linear infinite;
   animation-delay: var(--retraso-contacto);
-  backface-visibility: hidden;
   height: var(--icono);
   left: 50%;
   margin: calc(var(--icono) / -2);
+  opacity: 1;
   position: absolute;
   top: 50%;
-  transform: translate3d(calc(var(--recorrido) * -1), 0, 0);
+  transform: translate3d(0, var(--y-frente), 0) scale(1.04);
   width: var(--icono);
-  will-change: transform;
+  z-index: 6;
 }
 
 .contacto-orbital__accion {
-  animation: contacto-ocultar 18s linear infinite;
-  animation-delay: var(--retraso-contacto);
   background: rgba(9, 6, 15, 0.9);
   border: 1px solid rgba(172, 120, 255, 0.45);
   border-radius: 50%;
@@ -71,7 +64,7 @@
   height: 100%;
   padding: 0.58rem;
   place-items: center;
-  transition: 220ms ease;
+  transition: 180ms ease;
   width: 100%;
 }
 
@@ -83,7 +76,7 @@
 .contacto-orbital__accion:is(:hover, :focus-visible) {
   border-color: #55dde0;
   box-shadow: 0 0 18px rgba(192, 38, 255, 0.42);
-  transform: scale(1.06);
+  transform: scale(1.07);
 }
 
 .contacto-orbital__accion--pendiente {
@@ -91,11 +84,11 @@
 }
 
 .contacto-orbital__mascara {
-  background: radial-gradient(ellipse at center, rgba(5, 3, 10, 0.98) 38%, rgba(5, 3, 10, 0.76) 63%, transparent 82%);
-  height: calc(var(--bailarina) * 0.92);
+  background: radial-gradient(ellipse at center, rgba(5, 3, 10, 0.98) 38%, rgba(5, 3, 10, 0.8) 57%, transparent 78%);
+  height: calc(var(--bailarina) * 0.72);
   pointer-events: none;
   position: absolute;
-  width: calc(var(--bailarina) * 0.74);
+  width: calc(var(--bailarina) * 0.58);
   z-index: 3;
 }
 
@@ -113,35 +106,35 @@
 }
 
 .contacto-orbital__estado {
-  bottom: 0;
+  bottom: 0.1rem;
   left: 0;
-  min-height: 1.2rem;
+  min-height: 1.05rem;
   position: absolute;
   right: 0;
-  z-index: 5;
+  z-index: 7;
 }
 
-.contacto-orbital__escena:is(:hover, :focus-within) .contacto-orbital__item,
-.contacto-orbital__escena:is(:hover, :focus-within) .contacto-orbital__accion {
+.contacto-orbital__escena:is(:hover, :focus-within) .contacto-orbital__item {
   animation-play-state: paused;
 }
 
 @media (max-width: 560px) {
   .contacto-orbital__escena {
-    --bailarina: clamp(9rem, 47vw, 11.5rem);
-    --icono: clamp(2.55rem, 11vw, 2.8rem);
-    --recorrido: clamp(10rem, 46vw, 12.5rem);
-    min-height: 14.5rem;
+    --bailarina: clamp(8.2rem, 42vw, 10rem);
+    --icono: clamp(2.35rem, 10vw, 2.7rem);
+    --radio-x: clamp(6.8rem, 34vw, 9.2rem);
+    --y-frente: clamp(2rem, 8.5vw, 2.9rem);
+    height: clamp(12.4rem, 51vw, 14.75rem);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .contacto-orbital__escena {
+    height: auto;
     grid-template-rows: auto auto;
     min-height: 0;
   }
 
-  .contacto-orbital__trayectoria,
   .contacto-orbital__mascara {
     display: none;
   }
@@ -158,12 +151,11 @@
     flex-wrap: wrap;
     gap: 0.75rem;
     justify-content: center;
-    margin-top: 0.9rem;
+    margin-top: 1rem;
     order: 2;
   }
 
-  .contacto-orbital__item,
-  .contacto-orbital__accion {
+  .contacto-orbital__item {
     animation: none !important;
     margin: 0;
     opacity: 1;
@@ -174,30 +166,55 @@
   }
 }
 
-@keyframes contacto-desplazar {
-  to {
-    transform: translate3d(var(--recorrido), 0, 0);
-  }
-}
-
-@keyframes contacto-ocultar {
-  0%,
-  34%,
-  66%,
-  100% {
-    filter: none;
-    opacity: 1;
+@keyframes contacto-orbita-compacta {
+  0% {
+    transform: translate3d(0, var(--y-frente), 0) scale(1.04);
+    z-index: 6;
   }
 
-  43%,
-  57% {
-    filter: blur(0.4px);
+  12.5% {
+    transform: translate3d(calc(var(--radio-x) * 0.7), calc(var(--y-frente) * 0.64), 0) scale(1);
+  }
+
+  25% {
+    opacity: 0.88;
+    transform: translate3d(var(--radio-x), 0, 0) scale(0.88);
+    z-index: 5;
+  }
+
+  37.5% {
+    filter: blur(0.35px);
+    opacity: 0.5;
+    transform: translate3d(calc(var(--radio-x) * 0.7), var(--y-fondo), 0) scale(0.78);
+    z-index: 2;
+  }
+
+  50% {
+    filter: blur(0.55px);
     opacity: 0.24;
+    transform: translate3d(0, var(--y-fondo), 0) scale(0.78);
+    z-index: 1;
   }
 
-  49%,
-  51% {
-    filter: blur(0.6px);
-    opacity: 0;
+  62.5% {
+    filter: blur(0.35px);
+    opacity: 0.5;
+    transform: translate3d(calc(var(--radio-x) * -0.7), var(--y-fondo), 0) scale(0.78);
+    z-index: 2;
+  }
+
+  75% {
+    opacity: 0.88;
+    transform: translate3d(calc(var(--radio-x) * -1), 0, 0) scale(0.88);
+    z-index: 5;
+  }
+
+  87.5% {
+    transform: translate3d(calc(var(--radio-x) * -0.7), calc(var(--y-frente) * 0.64), 0) scale(1);
+  }
+
+  100% {
+    transform: translate3d(0, var(--y-frente), 0) scale(1.04);
+    z-index: 6;
   }
 }

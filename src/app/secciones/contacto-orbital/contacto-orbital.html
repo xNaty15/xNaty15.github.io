@@ -3,8 +3,6 @@
     <p class="contacto-orbital__rotulo">CONTACTO</p>
 
     <div class="contacto-orbital__escena">
-      <span class="contacto-orbital__trayectoria" aria-hidden="true"></span>
-
       <ul class="contacto-orbital__lista" aria-label="Opciones de contacto">
         @for (contacto of contactos; track contacto.id) {
           <li class="contacto-orbital__item" [style.--retraso-contacto]="contacto.retrasoAnimacion">
