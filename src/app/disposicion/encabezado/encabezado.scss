@@ -1,6 +1,9 @@
 :host {
   display: block;
-  position: relative;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
   z-index: 20;
 }
 
@@ -11,7 +14,7 @@
   justify-content: space-between;
   margin-inline: auto;
   max-width: var(--ancho-contenido);
-  padding: 1.25rem var(--espacio-pagina) 0;
+  padding: 1.25rem var(--espacio-pagina) 0.8rem;
   width: 100%;
 }
 
@@ -44,6 +47,7 @@
   font-size: 0.95rem;
   padding: 0.55rem 0.2rem;
   text-decoration: none;
+  text-shadow: 0 1px 18px rgba(5, 3, 10, 0.9);
 }
 
 .navegacion__item--activo {

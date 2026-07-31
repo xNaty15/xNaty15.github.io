@@ -1,121 +1,40 @@
 <main class="inicio" id="inicio">
   <section class="hero" aria-labelledby="titulo-principal">
+    <div class="hero__media" aria-label="Imagen de portada de Mikasa">
+      <img class="hero__imagen hero__imagen--oscura" src="assets/imagenes/mikasa.jpg" alt="" />
+      <img class="hero__imagen hero__imagen--color" src="assets/imagenes/mikasa.jpg" alt="" />
+
+      <div class="hero__banda hero__banda--ojos" aria-hidden="true">
+        <img src="assets/imagenes/mikasa.jpg" alt="" />
+      </div>
+      <div class="hero__banda hero__banda--inferior" aria-hidden="true">
+        <img src="assets/imagenes/mikasa.jpg" alt="" />
+      </div>
+
+      <span class="hero__borde hero__borde--superior" aria-hidden="true"></span>
+      <span class="hero__borde hero__borde--inferior" aria-hidden="true"></span>
+      <span class="hero__foco-ojos" aria-hidden="true"></span>
+      <span class="hero__velo" aria-hidden="true"></span>
+    </div>
+
     <div class="hero__contenido">
-      <p class="hero__etiqueta">DESARROLLO · INFRAESTRUCTURA · SEGURIDAD</p>
-
-      <h1 class="hero__titulo" id="titulo-principal">
+      <p class="hero__kicker">PORTAFOLIO / 2026</p>
+      <h1 id="titulo-principal" class="hero__titulo">
         <span>NATHALIA</span>
-        <span>PÉREZ</span>
+        <span>PEREZ</span>
       </h1>
-
-      <div class="hero__perfil" aria-label="Perfil profesional">
-        <p>Desarrolladora Full Stack Junior</p>
-        <p>Estudiante de Ingeniería en Computación</p>
-      </div>
-
-      <p class="hero__descripcion">
-        Desarrollo soluciones web modernas, trabajando con frontend, backend, bases de datos,
-        automatización e infraestructura, con especial interés en ciberseguridad.
-      </p>
-
-      <div class="hero__acciones" aria-label="Acciones principales">
-        <a class="boton boton--primario" href="#proyectos">Ver proyectos</a>
-        <button
-          class="boton boton--secundario"
-          type="button"
-          disabled
-          aria-describedby="cv-pendiente"
-        >
-          Descargar CV
-        </button>
-      </div>
-      <p class="sr-only" id="cv-pendiente">Currículum público pendiente de autorización.</p>
+      <p class="hero__subtitulo">Estudiante de Ingenieria en Computacion</p>
+      <p class="hero__nota">Construyendo soluciones digitales con curiosidad y precision.</p>
     </div>
 
-    <div
-      class="hero__visual"
-      aria-label="Fotografía de Nathalia Pérez"
-    >
-      <div class="decoracion decoracion--nombre" aria-hidden="true">
-        <span>NATHALIA</span>
-        <span>PÉREZ</span>
-      </div>
-      <div
-        class="hero__microdatos"
-        style="
-          color: rgba(85, 221, 224, 0.6);
-          display: flex;
-          font: 0.68rem var(--fuente-mono);
-          gap: 0.45rem;
-          left: 0.35rem;
-          opacity: 0.62;
-          position: absolute;
-          top: 32%;
-          z-index: 1;
-        "
-        aria-hidden="true"
-      >
-        <span>API</span>
-        <span>DB</span>
-        <span>SEC</span>
-      </div>
-      <div class="hero__escena" aria-hidden="true">
-        <span class="hero__halo"></span>
-        <img
-          class="hero__foto hero__foto--base"
-          src="assets/imagenes/nathalia-perfil.png"
-          alt=""
-        />
-
-        <div
-          class="hero__pieza hero__pieza--superior"
-          style="
-            --dx: -3rem;
-            --dy: -1.4rem;
-            --retardo: 360ms;
-            clip-path: polygon(0 10%, 100% 0, 100% 43%, 0 59%);
-          "
-        >
-          <img class="hero__foto hero__foto--oscura" src="assets/imagenes/nathalia-perfil.png" alt="" />
-          <img class="hero__foto hero__foto--color" src="assets/imagenes/nathalia-perfil.png" alt="" />
-        </div>
-
-        <div
-          class="hero__pieza hero__pieza--inferior"
-          style="
-            --dx: 3rem;
-            --dy: 1.7rem;
-            --retardo: 470ms;
-            clip-path: polygon(0 56%, 100% 38%, 100% 84%, 0 100%);
-          "
-        >
-          <img class="hero__foto hero__foto--oscura" src="assets/imagenes/nathalia-perfil.png" alt="" />
-          <img class="hero__foto hero__foto--color" src="assets/imagenes/nathalia-perfil.png" alt="" />
-        </div>
-
-        <img class="hero__foto hero__foto--final" src="assets/imagenes/nathalia-perfil.png" alt="" />
-
-        <span class="hero__separador" style="--top: 39%"></span>
-        <span class="hero__separador" style="--top: 52%"></span>
-        <span class="hero__barrido"></span>
-      </div>
-      <div class="hero__callouts" aria-hidden="true">
-        <span class="hero__callout hero__callout--stack">
-          <small>01</small>
-          FULL STACK JUNIOR
-        </span>
-        <span class="hero__callout hero__callout--student">
-          <small>02</small>
-          ESTUDIANTE DE INGENIERÍA EN COMPUTACIÓN
-        </span>
-      </div>
+    <div class="hero__marca" aria-hidden="true">
+      <span>01</span>
+      <span>VISUAL / IDENTITY</span>
     </div>
 
-    <a class="capsula" href="#tecnologias" aria-label="Deslizar hacia tecnologías">
-      <span aria-hidden="true"></span>
-      <span>Desliza para descubrir más</span>
-      <strong aria-hidden="true">→</strong>
-    </a>
+    <div class="hero__progreso" aria-hidden="true">
+      <span></span>
+    </div>
   </section>
 
   <app-franja-tecnologias />
