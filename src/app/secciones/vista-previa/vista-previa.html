@@ -1,39 +1,43 @@
-<section class="vista-previa" aria-label="Vista previa de contenido del portafolio">
-  <article class="tarjeta tarjeta--sobre" aria-labelledby="titulo-sobre-mi">
-    <header class="tarjeta__encabezado">
-      <span class="marcador" aria-hidden="true">○</span>
-      <h2 id="titulo-sobre-mi">SOBRE MÍ</h2>
-    </header>
+<section class="vista-previa" id="proyectos" aria-label="Trabajo destacado del portafolio">
+  <header class="proyectos__encabezado">
+    <p class="proyectos__rotulo">SELECCIÓN PERSONAL</p>
+    <h2>PROYECTOS</h2>
+  </header>
 
-    <div class="sobre__imagen">
-      <img
-        src="assets/imagenes/chibi-sobre-mi.png"
-        alt="Ilustración estilo chibi de Nathalia Pérez para la vista previa de Sobre mí"
-      />
-    </div>
-
-    <p>Me encantan los videojuegos, programar y aprender</p>
-  </article>
-
-  <article class="tarjeta tarjeta--proyecto" id="proyectos" aria-labelledby="titulo-proyecto">
-    <header class="proyecto__rotulo">
-      <span aria-hidden="true"></span>
-      <p>PROYECTO DESTACADO</p>
-    </header>
-
-    <div class="proyecto__contenido">
+  <article class="trabajo" aria-labelledby="titulo-trabajo">
+    <a
+      class="trabajo__imagen-enlace"
+      href="https://xnaty15.github.io/Chainsaw-Man/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Abrir Chainsaw Man"
+    >
       <img
         src="assets/imagenes/proyecto-destacado-temporal.png"
-        alt="Imagen temporal para revisar la composición visual del proyecto destacado"
+        alt="Vista previa del proyecto Chainsaw Man"
       />
+    </a>
 
-      <div class="proyecto__texto">
-        <h2 id="titulo-proyecto">Proyecto destacado</h2>
-        <p>Contenido pendiente de confirmar.</p>
-        <div class="proyecto__pendiente" aria-label="Tecnologías pendientes de confirmar">
-          Etiquetas pendientes
-        </div>
-        <small>Imagen temporal para composición visual. Será sustituida por un proyecto real autorizado.</small>
+    <div class="trabajo__detalle">
+      <div>
+        <h3>Chainsaw Man</h3>
+        <p>Proyecto personal desarrollado por iniciativa propia para practicar la creación de interfaces web temáticas.</p>
+      </div>
+
+      <div class="trabajo__pie">
+        <ul class="trabajo__tecnologias" aria-label="Tecnologías utilizadas">
+          <li>HTML5</li>
+          <li>CSS3</li>
+        </ul>
+        <a
+          class="boton boton--primario trabajo__boton"
+          href="https://xnaty15.github.io/Chainsaw-Man/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Ver proyecto Chainsaw Man"
+        >
+          <span>Ver proyecto</span>
+        </a>
       </div>
     </div>
   </article>

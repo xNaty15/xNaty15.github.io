@@ -1,5 +1,12 @@
 .contacto-orbital {
-  background: rgba(139, 44, 255, 0.05);
+  background:
+    linear-gradient(180deg, rgba(192, 38, 255, 0.1), rgba(7, 4, 12, 0.9) 28%, rgba(7, 4, 12, 0.96)),
+    #07040c;
+  border-block: 1px solid rgba(192, 38, 255, 0.42);
+  box-shadow:
+    0 -10px 34px rgba(139, 44, 255, 0.09),
+    0 10px 34px rgba(139, 44, 255, 0.12),
+    inset 0 1px 0 rgba(232, 217, 255, 0.08);
   margin-top: clamp(1rem, 3vw, 2.4rem);
   overflow: clip;
   padding: clamp(1.35rem, 2.8vw, 2.5rem) var(--espacio-pagina) clamp(0.1rem, 0.4vw, 0.35rem);
@@ -12,11 +19,18 @@
 }
 
 .contacto-orbital__rotulo {
-  color: #73f7ff;
-  font-size: 0.82rem;
+  background: rgba(8, 4, 15, 0.88);
+  border: 1px solid rgba(192, 38, 255, 0.58);
+  border-radius: 999px;
+  box-shadow: 0 0 18px rgba(192, 38, 255, 0.22);
+  color: #e8d9ff;
+  display: inline-block;
+  font-size: 0.84rem;
   font-weight: 800;
   letter-spacing: 0.22em;
   margin: 0 0 clamp(0.55rem, 1.4vw, 1rem);
+  padding: 0.48rem 1rem 0.48rem 1.12rem;
+  text-shadow: 0 0 12px rgba(232, 217, 255, 0.72);
 }
 
 .contacto-orbital__escena {
@@ -31,6 +45,17 @@
   max-width: min(100%, 40rem);
   place-items: center;
   position: relative;
+}
+
+.contacto-orbital__copyright {
+  color: rgba(232, 217, 255, 0.72);
+  font-family: var(--fuente-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  margin: 0.2rem 0 0;
+  opacity: 0.9;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(192, 38, 255, 0.42);
 }
 
 .contacto-orbital__lista {
@@ -57,8 +82,9 @@
 
 .contacto-orbital__accion {
   background: rgba(9, 6, 15, 0.9);
-  border: 1px solid rgba(172, 120, 255, 0.45);
+  border: 1px solid rgba(192, 38, 255, 0.68);
   border-radius: 50%;
+  box-shadow: 0 0 12px rgba(192, 38, 255, 0.2);
   cursor: pointer;
   display: grid;
   height: 100%;
@@ -74,8 +100,8 @@
 }
 
 .contacto-orbital__accion:is(:hover, :focus-visible) {
-  border-color: #55dde0;
-  box-shadow: 0 0 18px rgba(192, 38, 255, 0.42);
+  border-color: #e8d9ff;
+  box-shadow: 0 0 10px rgba(232, 217, 255, 0.8), 0 0 24px rgba(192, 38, 255, 0.68);
   transform: scale(1.07);
 }
 
