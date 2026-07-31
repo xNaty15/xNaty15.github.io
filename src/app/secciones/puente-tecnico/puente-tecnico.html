@@ -4,20 +4,18 @@
       @for (indicador of indicadores; track indicador.etiqueta) {
         <span
           class="puente-tecnico__indicador"
-          [class.is-tablet-hidden]="indicador.ocultarTablet"
-          [class.is-mobile-hidden]="indicador.ocultarMovil"
-          [style.top]="indicador.top"
-          [style.right]="indicador.right"
-          [style.bottom]="indicador.bottom"
-          [style.left]="indicador.left"
-          [style.--delay]="indicador.delay"
-          [style.--rot]="indicador.rot"
-          [style.--ty]="indicador.ty"
         >
-          <small>{{ indicador.codigo }}</small>
           {{ indicador.etiqueta }}
         </span>
       }
+    </div>
+
+    <div class="puente-tecnico__identidad">
+      <p class="puente-tecnico__nombre">
+        <span>NATHALIA</span>
+        <span>PEREZ</span>
+      </p>
+      <p class="puente-tecnico__rol">Estudiante de Ingenieria en Computacion</p>
     </div>
 
     <figure class="puente-tecnico__foto">
