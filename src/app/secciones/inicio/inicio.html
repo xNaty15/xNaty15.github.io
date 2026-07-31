@@ -1,40 +1,42 @@
 <main class="inicio" id="inicio">
   <section class="hero" aria-labelledby="titulo-principal">
     <div class="hero__media" aria-label="Imagen de portada de Mikasa">
-      <img class="hero__imagen hero__imagen--oscura" src="assets/imagenes/mikasa.jpg" alt="" />
+      <div class="hero__editorial" aria-hidden="true">
+        <span>NATHALIA</span>
+        <span>PEREZ</span>
+      </div>
+
       <img class="hero__imagen hero__imagen--color" src="assets/imagenes/mikasa.jpg" alt="" />
+      <img class="hero__imagen hero__imagen--gris" src="assets/imagenes/mikasa.jpg" alt="" />
 
-      <div class="hero__banda hero__banda--ojos" aria-hidden="true">
-        <img src="assets/imagenes/mikasa.jpg" alt="" />
-      </div>
-      <div class="hero__banda hero__banda--inferior" aria-hidden="true">
-        <img src="assets/imagenes/mikasa.jpg" alt="" />
-      </div>
-
-      <span class="hero__borde hero__borde--superior" aria-hidden="true"></span>
-      <span class="hero__borde hero__borde--inferior" aria-hidden="true"></span>
+      <div class="hero__cortina hero__cortina--superior" aria-hidden="true"></div>
+      <div class="hero__cortina hero__cortina--inferior" aria-hidden="true"></div>
       <span class="hero__foco-ojos" aria-hidden="true"></span>
       <span class="hero__velo" aria-hidden="true"></span>
     </div>
 
     <div class="hero__contenido">
-      <p class="hero__kicker">PORTAFOLIO / 2026</p>
+      <p class="hero__kicker">Cada problema es una oportunidad para crear</p>
       <h1 id="titulo-principal" class="hero__titulo">
-        <span>NATHALIA</span>
-        <span>PEREZ</span>
+        <span>PORTAFOLIO 2026</span>
       </h1>
+      <a
+        class="boton boton--primario hero__cv"
+        href="assets/imagenes/Curriculum_Nathalia_Pérez.pdf"
+        download="Curriculum_Nathalia_Perez.pdf"
+        aria-label="Descargar CV de Nathalia Perez"
+      >
+        Descargar CV
+      </a>
       <p class="hero__subtitulo">Estudiante de Ingenieria en Computacion</p>
-      <p class="hero__nota">Construyendo soluciones digitales con curiosidad y precision.</p>
     </div>
 
-    <div class="hero__marca" aria-hidden="true">
-      <span>01</span>
-      <span>VISUAL / IDENTITY</span>
+    <div class="hero__etiquetas" aria-label="Perfil profesional">
+      <span class="hero__etiqueta hero__etiqueta--dos"><small>02</small> ASPIRANTE A PENTESTER</span>
+      <span class="hero__etiqueta hero__etiqueta--tres"><small>03</small> INGENIERIA EN COMPUTACION</span>
     </div>
 
-    <div class="hero__progreso" aria-hidden="true">
-      <span></span>
-    </div>
+    <div class="hero__progreso" aria-hidden="true"><span></span></div>
   </section>
 
   <app-franja-tecnologias />
