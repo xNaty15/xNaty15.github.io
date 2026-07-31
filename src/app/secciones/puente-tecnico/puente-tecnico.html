@@ -1,0 +1,28 @@
+<section class="puente-tecnico" aria-label="Transicion tecnica del portafolio">
+  <div class="puente-tecnico__marco">
+    <div class="puente-tecnico__decoracion" aria-hidden="true">
+      @for (indicador of indicadores; track indicador.etiqueta) {
+        <span
+          class="puente-tecnico__indicador"
+          [class.is-tablet-hidden]="indicador.ocultarTablet"
+          [class.is-mobile-hidden]="indicador.ocultarMovil"
+          [style.top]="indicador.top"
+          [style.right]="indicador.right"
+          [style.bottom]="indicador.bottom"
+          [style.left]="indicador.left"
+          [style.--delay]="indicador.delay"
+          [style.--rot]="indicador.rot"
+          [style.--ty]="indicador.ty"
+        >
+          <small>{{ indicador.codigo }}</small>
+          {{ indicador.etiqueta }}
+        </span>
+      }
+    </div>
+
+    <figure class="puente-tecnico__foto">
+      <span class="puente-tecnico__halo" aria-hidden="true"></span>
+      <img src="assets/imagenes/nathalia-perfil.png" alt="Fotografia de Nathalia Perez" loading="lazy" />
+    </figure>
+  </div>
+</section>
