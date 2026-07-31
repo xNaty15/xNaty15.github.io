@@ -2,7 +2,7 @@
   background: rgba(139, 44, 255, 0.05);
   margin-top: clamp(1rem, 3vw, 2.4rem);
   overflow: clip;
-  padding: clamp(1.35rem, 2.8vw, 2.5rem) var(--espacio-pagina) clamp(0.35rem, 1vw, 0.85rem);
+  padding: clamp(1.35rem, 2.8vw, 2.5rem) var(--espacio-pagina) clamp(0.1rem, 0.4vw, 0.35rem);
 }
 
 .contacto-orbital__contenido {
@@ -26,7 +26,7 @@
   --y-frente: clamp(2.55rem, 4.8vw, 4.2rem);
   --y-fondo: calc(var(--y-frente) * -0.8);
   display: grid;
-  height: clamp(14.5rem, 24vw, 19rem);
+  height: clamp(13.2rem, 21vw, 17rem);
   margin: 0 auto;
   max-width: min(100%, 40rem);
   place-items: center;
@@ -124,7 +124,7 @@
     --icono: clamp(2.35rem, 10vw, 2.7rem);
     --radio-x: clamp(6.8rem, 34vw, 9.2rem);
     --y-frente: clamp(2rem, 8.5vw, 2.9rem);
-    height: clamp(12.4rem, 51vw, 14.75rem);
+    height: clamp(11.5rem, 47vw, 13.5rem);
   }
 }
 
