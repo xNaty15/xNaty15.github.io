@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.angular/
+.git/
+.github/
+Prompt/
+__screenshots__/
+Grab*
+Captura*
+*.mp4
+*.mov
+*.webm
+*.log
+*.tmp
+Grabación*
+BuenD*.mp4

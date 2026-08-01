@@ -27,7 +27,13 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public",
+                "ignore": [
+                  "assets/imagenes/cobi.htm",
+                  "assets/imagenes/cobi_files/**",
+                  "assets/imagenes/n.htm",
+                  "assets/imagenes/n_files/**"
+                ]
               }
             ],
             "styles": [
