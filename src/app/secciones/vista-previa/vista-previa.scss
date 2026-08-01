@@ -4,7 +4,7 @@
 
 .vista-previa {
   display: block;
-  margin: clamp(3.5rem, 8vw, 7rem) auto 0;
+  margin: clamp(2rem, 4vw, 3.5rem) auto 0;
   max-width: var(--ancho-contenido);
   padding: 0 var(--espacio-pagina);
 }
@@ -21,7 +21,22 @@
   font-size: 0.62rem;
   letter-spacing: 0.18em;
   margin: 0 0 0.45rem;
+  position: relative;
   text-transform: uppercase;
+}
+
+.proyectos__rotulo::after {
+  animation: proyectos-brillo 2.6s ease-in-out infinite;
+  background: linear-gradient(90deg, transparent, #fff, var(--color-neon), transparent);
+  box-shadow: 0 0 8px rgba(232, 217, 255, 0.86), 0 0 16px rgba(192, 38, 255, 0.72);
+  content: '';
+  height: 1px;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: calc(100% + 0.25rem);
+  transform: translateX(-50%) scaleX(0.15);
+  width: 4.2rem;
 }
 
 .proyectos__encabezado h2 {
@@ -31,6 +46,23 @@
   letter-spacing: 0.08em;
   margin: 0;
   text-shadow: 0 0 18px rgba(192, 38, 255, 0.42);
+}
+
+@keyframes proyectos-brillo {
+  0%, 18% {
+    opacity: 0;
+    transform: translateX(-50%) scaleX(0.15);
+  }
+
+  38%, 64% {
+    opacity: 1;
+    transform: translateX(-50%) scaleX(1);
+  }
+
+  82%, 100% {
+    opacity: 0;
+    transform: translateX(135%) scaleX(0.3);
+  }
 }
 
 .trabajo .seccion__eyebrow {
@@ -178,6 +210,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .proyectos__rotulo::after {
+    animation: none;
+    opacity: 0.7;
+    transform: translateX(-50%) scaleX(1);
+  }
+
   .trabajo__imagen-enlace img,
   .trabajo__imagen-enlace::after,
   .trabajo__boton {

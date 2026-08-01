@@ -37,7 +37,7 @@
 }
 
 .hero__imagen--color {
-  animation: color-reveal 850ms 2500ms ease-out forwards;
+  animation: color-reveal 800ms 2300ms ease-out forwards;
   filter: saturate(1.04) contrast(1.05);
   opacity: 0;
   transform: scale(1.03);
@@ -45,7 +45,7 @@
 }
 
 .hero__imagen--gris {
-  animation: gris-retiro 850ms 2500ms ease-out forwards;
+  animation: gris-retiro 800ms 2300ms ease-out forwards;
   filter: grayscale(1) brightness(0.38) contrast(1.08);
   z-index: 2;
 }
@@ -252,11 +252,11 @@ app-franja-tecnologias {
 }
 
 .hero__cortina--superior {
-  animation: cortina-superior 1200ms 1400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: cortina-superior 1050ms 1400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .hero__cortina--inferior {
-  animation: cortina-inferior 1200ms 1400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: cortina-inferior 1050ms 1400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .hero__foco-ojos {
